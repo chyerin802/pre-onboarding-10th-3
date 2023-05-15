@@ -22,7 +22,8 @@
       "@api/*": ["src/api/*"],
       "@hooks/*": ["src/hooks/*"],
       "@hoc/*": ["src/hoc/*"],
-      "@utils/*": ["src/utils/*"]
+      "@utils/*": ["src/utils/*"],
+      "@type/*": ["src/types/*"]
     }
   },
   "include": ["src", "commitlint.config.js", "craco.config.js"]

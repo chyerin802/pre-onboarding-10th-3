@@ -1,8 +1,9 @@
 import React from 'react';
+import { TodoListProps } from '@type/todo';
 import TodoItem from './TodoItem';
 
 // TODO: props 타입 지정
-function TodoList({ todos, setTodos }: { todos: any[]; setTodos: any }) {
+function TodoList({ todos, setTodos }: TodoListProps) {
   return todos.length ? (
     <ul>
       {todos.map(({ id, title }) => (

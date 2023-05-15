@@ -5,14 +5,14 @@ const RESOURCE = '/todos';
 export const getTodoList = async () => {
   try {
     const response = await apiRequest.get(`${RESOURCE}`, {});
-
+    console.log(response);
     return response;
   } catch (error) {
     throw new Error('API getTodoList error');
   }
 };
 
-export const createTodo = async (data: any) => {
+export const createTodo = async (data: { title: string }) => {
   try {
     const response = await apiRequest.post(`${RESOURCE}`, data, {});
 
@@ -22,7 +22,7 @@ export const createTodo = async (data: any) => {
   }
 };
 
-export const deleteTodo = async (id: any) => {
+export const deleteTodo = async (id: string) => {
   try {
     const response = await apiRequest.delete(`${RESOURCE}/${id}`, {});
 

@@ -4,9 +4,10 @@ import { FaPlusCircle, FaSpinner } from 'react-icons/fa';
 
 import { createTodo } from '@api/todo';
 import useFocus from '@hooks/useFocus';
+import { InputTodoProps, Todo } from '@type/todo';
 
 // TODO: props 타입 지정하기
-function InputTodo({ setTodos }: { setTodos: any }) {
+function InputTodo({ setTodos }: InputTodoProps) {
   const [inputText, setInputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const { ref, setFocus } = useFocus();
@@ -30,7 +31,7 @@ function InputTodo({ setTodos }: { setTodos: any }) {
         const { data } = await createTodo(newItem);
 
         if (data) {
-          return setTodos((prev: any) => [...prev, data]);
+          return setTodos((prev: Todo[]) => [...prev, data]);
         }
       } catch (error) {
         console.error(error);

@@ -1,4 +1,6 @@
-const Header = () => {
+import React from 'react';
+
+function Header() {
   // TODO: 인라인 스타일 수정하기
 
   // const headerStyle = {
@@ -19,6 +21,6 @@ const Header = () => {
       <h1>Toodos</h1>
     </header>
   );
-};
+}
 
 export default Header;

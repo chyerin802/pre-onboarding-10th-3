@@ -1,7 +1,8 @@
-import TodoItem from "./TodoItem";
+import React from 'react';
+import TodoItem from './TodoItem';
 
 // TODO: props 타입 지정
-const TodoList = ({ todos, setTodos }: { todos: any[]; setTodos: any }) => {
+function TodoList({ todos, setTodos }: { todos: any[]; setTodos: any }) {
   return todos.length ? (
     <ul>
       {todos.map(({ id, title }) => (
@@ -11,5 +12,5 @@ const TodoList = ({ todos, setTodos }: { todos: any[]; setTodos: any }) => {
   ) : (
     <div className="empty-list">...</div>
   );
-};
+}
 export default TodoList;

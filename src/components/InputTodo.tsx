@@ -1,12 +1,13 @@
-import { FaPlusCircle, FaSpinner } from "react-icons/fa";
-import { FormEvent, useCallback, useEffect, useState } from "react";
+import React, { FormEvent, useCallback, useEffect, useState } from 'react';
 
-import { createTodo } from "../api/todo";
-import useFocus from "../hooks/useFocus";
+import { FaPlusCircle, FaSpinner } from 'react-icons/fa';
+
+import { createTodo } from '../api/todo';
+import useFocus from '../hooks/useFocus';
 
 // TODO: props 타입 지정하기
-const InputTodo = ({ setTodos }: { setTodos: any }) => {
-  const [inputText, setInputText] = useState("");
+function InputTodo({ setTodos }: { setTodos: any }) {
+  const [inputText, setInputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const { ref, setFocus } = useFocus();
 
@@ -22,7 +23,7 @@ const InputTodo = ({ setTodos }: { setTodos: any }) => {
 
         const trimmed = inputText.trim();
         if (!trimmed) {
-          return alert("Please write something");
+          return alert('Please write something');
         }
 
         const newItem = { title: trimmed };
@@ -33,9 +34,9 @@ const InputTodo = ({ setTodos }: { setTodos: any }) => {
         }
       } catch (error) {
         console.error(error);
-        alert("Something went wrong.");
+        alert('Something went wrong.');
       } finally {
-        setInputText("");
+        setInputText('');
         setIsLoading(false);
       }
     },
@@ -49,7 +50,7 @@ const InputTodo = ({ setTodos }: { setTodos: any }) => {
         placeholder="Add new todo..."
         ref={ref}
         value={inputText}
-        onChange={(e) => setInputText(e.target.value)}
+        onChange={e => setInputText(e.target.value)}
         disabled={isLoading}
       />
       {!isLoading ? (
@@ -61,6 +62,6 @@ const InputTodo = ({ setTodos }: { setTodos: any }) => {
       )}
     </form>
   );
-};
+}
 
 export default InputTodo;

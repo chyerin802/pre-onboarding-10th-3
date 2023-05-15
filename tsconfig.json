@@ -14,7 +14,16 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@pages/*": ["src/pages/*"],
+      "@api/*": ["src/api/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@hoc/*": ["src/hoc/*"],
+      "@utils/*": ["src/utils/*"]
+    }
   },
-  "include": ["src", "commitlint.config.js"]
+  "include": ["src", "commitlint.config.js", "craco.config.js"]
 }

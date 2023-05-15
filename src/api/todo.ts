@@ -1,4 +1,4 @@
-import apiRequest from './index';
+import apiRequest from '.';
 
 const RESOURCE = '/todos';
 

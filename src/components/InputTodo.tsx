@@ -2,8 +2,8 @@ import React, { FormEvent, useCallback, useEffect, useState } from 'react';
 
 import { FaPlusCircle, FaSpinner } from 'react-icons/fa';
 
-import { createTodo } from '../api/todo';
-import useFocus from '../hooks/useFocus';
+import { createTodo } from '@api/todo';
+import useFocus from '@hooks/useFocus';
 
 // TODO: props 타입 지정하기
 function InputTodo({ setTodos }: { setTodos: any }) {

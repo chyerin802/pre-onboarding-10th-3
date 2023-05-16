@@ -8,7 +8,12 @@ function useTodo() {
 
   const addTodo = useCallback(
     async (inputText: string) => {
-      const newItem = { title: inputText };
+      const trimmed = inputText.trim();
+      if (!trimmed) {
+        return alert('Please write something');
+      }
+
+      const newItem = { title: trimmed };
       const { data } = await createTodo(newItem);
 
       if (data) {

@@ -20,13 +20,7 @@ function InputTodo({ addTodo }: InputTodoProps) {
       try {
         e.preventDefault();
         setIsLoading(true);
-
-        const trimmed = inputText.trim();
-        if (!trimmed) {
-          return alert('Please write something');
-        }
-
-        await addTodo(trimmed);
+        await addTodo(inputText);
       } catch (error) {
         console.error(error);
         alert('Something went wrong.');

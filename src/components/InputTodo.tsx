@@ -2,12 +2,11 @@ import React, { FormEvent, useCallback, useEffect, useState } from 'react';
 
 import { FaPlusCircle, FaSpinner } from 'react-icons/fa';
 
-import { createTodo } from '@api/todo';
 import useFocus from '@hooks/useFocus';
-import { InputTodoProps, Todo } from '@type/todo';
+import { InputTodoProps } from '@type/todo';
 
 // TODO: props 타입 지정하기
-function InputTodo({ setTodos }: InputTodoProps) {
+function InputTodo({ addTodo }: InputTodoProps) {
   const [inputText, setInputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const { ref, setFocus } = useFocus();
@@ -27,12 +26,7 @@ function InputTodo({ setTodos }: InputTodoProps) {
           return alert('Please write something');
         }
 
-        const newItem = { title: trimmed };
-        const { data } = await createTodo(newItem);
-
-        if (data) {
-          return setTodos((prev: Todo[]) => [...prev, data]);
-        }
+        await addTodo(trimmed);
       } catch (error) {
         console.error(error);
         alert('Something went wrong.');
@@ -41,7 +35,7 @@ function InputTodo({ setTodos }: InputTodoProps) {
         setIsLoading(false);
       }
     },
-    [inputText, setTodos]
+    [inputText, addTodo]
   );
 
   return (

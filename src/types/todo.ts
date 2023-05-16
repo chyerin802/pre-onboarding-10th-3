@@ -7,15 +7,15 @@ export interface Todo {
 
 export interface TodoListProps {
   todos: Todo[];
-  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+  removeTodo: (id: string) => Promise<void>;
 }
 
 export interface TodoItemProps {
   id: string;
   title: string;
-  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+  removeTodo: (id: string) => Promise<void>;
 }
 
 export interface InputTodoProps {
-  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+  addTodo: (inputText: string) => Promise<void>;
 }

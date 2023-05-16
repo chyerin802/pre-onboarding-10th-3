@@ -1,25 +1,23 @@
 import React, { useCallback, useState } from 'react';
 
 import { FaSpinner, FaTrash } from 'react-icons/fa';
-import { deleteTodo } from '@api/todo';
-import { TodoItemProps, Todo } from '@type/todo';
+import { TodoItemProps } from '@type/todo';
 
-function TodoItem({ id, title, setTodos }: TodoItemProps) {
+function TodoItem({ id, title, removeTodo }: TodoItemProps) {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleRemoveTodo = useCallback(async () => {
     try {
       setIsLoading(true);
-      await deleteTodo(id);
 
-      setTodos((prev: Todo[]) => prev.filter((item: Todo) => item.id !== id));
+      await removeTodo(id);
     } catch (error) {
       console.error(error);
       alert('Something went wrong.');
     } finally {
       setIsLoading(false);
     }
-  }, [id, setTodos]);
+  }, [id, removeTodo]);
 
   return (
     <li className="item">

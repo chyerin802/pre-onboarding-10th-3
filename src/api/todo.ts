@@ -5,7 +5,6 @@ const RESOURCE = '/todos';
 export const getTodoList = async () => {
   try {
     const response = await apiRequest.get(`${RESOURCE}`, {});
-    console.log(response);
     return response;
   } catch (error) {
     throw new Error('API getTodoList error');
